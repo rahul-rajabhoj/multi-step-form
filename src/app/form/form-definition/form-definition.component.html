@@ -1,0 +1,37 @@
+<form (ngSubmit)="onButtonClick('submit')" [formGroup]="form">
+
+    <div>
+        <div *ngFor="let field of step.controls;" [ngSwitch]="field.type" class="fields">
+          <div class="full-width">
+            <div>
+              <label class="field-label text-bold" [for]="field.label">{{ field.label }}</label>
+            </div>
+
+            <ng-container *ngSwitchCase="'textarea'">
+              <div>
+                <textarea [id]="field.name" [formControlName]="field.name"></textarea>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'checkbox'">
+              <div>
+                <checkbox [formControlName]="field.name" [inputField]="field" [form]="form"></checkbox>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'text'">
+              <div>
+                <input [type]="field.type" [formControlName]="field.name" [id]="field.name"/>
+              </div>
+            </ng-container>
+          </div>
+
+        </div>
+      </div>
+
+
+    <div class="button-div">
+        <button type="submit" class="mr-10" [hidden]="!step.isLast" [disabled]="form.invalid">Submit</button>
+        <button type="button" class="mr-10" [hidden]="step.isLast" [disabled]="form.invalid" (click)="onButtonClick('next')">Next</button>
+    </div>
+</form>

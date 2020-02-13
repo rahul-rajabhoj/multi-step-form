@@ -1,0 +1,3 @@
+<div *ngFor="let option of inputField.options">
+    <input type="checkbox" value="option.value" [(ngModel)]="option.checked" (change)="onChange(option)"/>{{ option.name }}
+</div>

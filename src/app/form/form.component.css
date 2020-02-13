@@ -1,0 +1,23 @@
+.form-div {
+    width: fit-content;
+    height: fit-content;
+}
+
+.step-name {
+    background-color: rgb(92, 90, 89);
+    border: 1px solid grey;
+    margin-right: 10px;
+    color: white;
+}
+
+.bg-green {
+    background-color: #389e10;
+}
+
+.form-container {
+    margin: 10px;
+}
+
+.row {
+    margin-left: 0px !important;
+}

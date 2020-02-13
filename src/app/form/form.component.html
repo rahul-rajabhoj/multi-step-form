@@ -1,0 +1,11 @@
+<div class="form-container">
+    <div class="row">
+        <span *ngFor="let step of form; let i = index" class="col-xs-3 step-name" [ngClass]="{'bg-green': i == activeStepIndex}">
+            {{ step.stepName }}
+        </span>
+    </div>
+    
+    <div class="form-div" *ngFor="let step of form; let i = index">
+        <app-form-definition *ngIf="i === activeStepIndex" [step]="step" (onClick)="onClick($event)"></app-form-definition>
+    </div>
+</div>
